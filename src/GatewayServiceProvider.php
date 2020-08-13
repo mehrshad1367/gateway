@@ -7,12 +7,12 @@ use Illuminate\Support\ServiceProvider;
 
 class GatewayServiceProvider extends ServiceProvider
 {
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
     /**
      * Actual provider
@@ -34,17 +34,17 @@ class GatewayServiceProvider extends ServiceProvider
         $this->provider = $this->getProvider();
     }
 
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
         if (method_exists($this->provider, 'boot')) {
             return $this->provider->boot();
         }
-	}
+    }
 
     /**
      * Return ServiceProvider according to Laravel version
@@ -64,13 +64,13 @@ class GatewayServiceProvider extends ServiceProvider
         return new $provider($this->app);
     }
 
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-	    return $this->provider->register();
-	}
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        return $this->provider->register();
+    }
 }
